@@ -23,7 +23,7 @@ export default function Home() {
       })
       .then(res => {
         window.sessionStorage.setItem("jwt", res.data.jwt);
-        router.push("/success");
+        router.push("/store");
       })
       .catch(err => {
         let errH = JSON.stringify(err.response);
@@ -34,7 +34,7 @@ export default function Home() {
   useEffect(() => {
     const jwt = window.sessionStorage.getItem("jwt");
     if (jwt) {
-      router.push("/success");
+      router.push("/store");
     }
   }, []);
 

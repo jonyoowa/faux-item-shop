@@ -25,7 +25,7 @@ export default function Register() {
             })
             .then(res => {
                 window.sessionStorage.setItem("jwt", res.data.jwt);
-                router.push("/success");
+                router.push("/store");
             })
             .catch(err => {
                 console.log(`An error has occured: ${err}`);
@@ -35,7 +35,7 @@ export default function Register() {
     useEffect(() => {
         const jwt = window.sessionStorage.getItem("jwt");
         if (jwt) {
-            router.push("/success");
+            router.push("/store");
         }
     }, []);
 
