@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head'
 import Layout from '../components/layout';
 import LoginForm from '../components/loginForm';
+import styles from '../components/layout.module.css';
 
 import axios from 'axios';
 import { useRouter } from 'next/router';
@@ -39,7 +40,7 @@ export default function Home() {
   }, []);
 
   return (
-    <Layout>
+    <div className={styles.container}>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -51,6 +52,6 @@ export default function Home() {
         <h1>Footer Text Here</h1>
       </footer>
 
-    </Layout>
+    </div>
   )
 }

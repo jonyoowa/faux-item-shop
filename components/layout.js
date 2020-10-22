@@ -9,7 +9,7 @@ export default function Layout({ children }) {
             <Head>
                 <meta name="description" content="Faux Item Shop" />
             </Head>
-            {/* <Header /> */}
+            <Header />
             <main>{children}</main>
         </div>
     )

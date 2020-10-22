@@ -31,7 +31,6 @@ export default function Store() {
 
     return (
         <Layout>
-            <h2>Store page</h2>
             <div className="flex flex-wrap">
                 {products.map(product => <ProductCard product={product} key={product.id} />)}
             </div>
