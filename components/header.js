@@ -1,5 +1,15 @@
+import { useRouter } from 'next/router';
+import LogoutButton from './logoutButton';
 
 export default function Header() {
+    const router = useRouter();
+
+    const handleLogout = async (e) => {
+        e.preventDefault();
+        window.sessionStorage.removeItem('jwt');
+        router.push('/');
+    }
+
     return (
         <header className="border-b flex items-center justify-between p-4 pb-0 shadow-lg">
             <div className="flex items-center justify-between mb-4">
@@ -16,6 +26,9 @@ export default function Header() {
                     </li>
                     <li className="md:ml-4">
                         <NavLink label="Settings" link="#" />
+                    </li>
+                    <li className="md:ml-4">
+                        <LogoutButton handleLogout={handleLogout} />
                     </li>
                 </ul>
             </nav>
