@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../components/layout';
 import StoredNumbersForm from '../components/storedNumbersForm';
+import StoredNumbersTable from '../components/storedNumbersTable';
 import axios from 'axios';
-import { useRouter } from 'next/router';
 
 export default function Numbers() {
-    const router = useRouter();
     const storedNumbersEndpoint = `${process.env.NEXT_PUBLIC_HOSTNAME}:${process.env.NEXT_PUBLIC_PORT}/stored-numbers`;
 
     const [showTable, setShowTable] = useState(false);
     const [number, setNumber] = useState(0);
+    const [storedNumbers, setStoredNumbers] = useState();
 
     const storeNumber = async (e) => {
         e.preventDefault();
@@ -35,20 +35,19 @@ export default function Numbers() {
             Router.push('/');
         }
 
-        // axios.get(productsEndpoint).then((res) => {
-        //     setProducts(res.data);
-        // });
-
-        // axios.get(categoriesEndpoint).then((res) => {
-        //     setCategories(res.data);
-        // });
-
-    }, []);
+        axios.get(storedNumbersEndpoint).then((res) => {
+            setStoredNumbers(res.data);
+        });
+    }, [showTable]);
 
     return (
         <Layout>
             <div className="flex flex-wrap">
-                {showTable ? <StoredNumbersTable /> : <StoredNumbersForm storeNumber={storeNumber} setShowTable={setShowTable} number={number} setNumber={setNumber} />}
+                {
+                    showTable ?
+                        <StoredNumbersTable setShowTable={setShowTable} storedNumbers={storedNumbers} /> :
+                        <StoredNumbersForm storeNumber={storeNumber} setShowTable={setShowTable} number={number} setNumber={setNumber} />
+                }
             </div>
         </Layout>
     )

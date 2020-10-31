@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function StoredNumbersForm({ storeNumber, setShowTable, number, setNumber }) {
-
     return (
         <div className="w-full max-w-xs mx-auto">
             <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={storeNumber}>
@@ -21,7 +20,7 @@ export default function StoredNumbersForm({ storeNumber, setShowTable, number, s
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                         Add
                     </button>
-                    <button className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" onClick={() => console.log("Change this to show table")}>
+                    <button className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" onClick={() => setShowTable(true)}>
                         Show Table
                     </button>
                 </div>
