@@ -10,7 +10,8 @@ import { useRouter } from 'next/router';
 
 export default function Register() {
     const router = useRouter();
-    const registerEndpoint = `${process.env.NEXT_PUBLIC_HOSTNAME}:${process.env.NEXT_PUBLIC_PORT}/auth/local/register`;
+    const registerEndpoint = `${process.env.NEXT_PUBLIC_HOSTNAME}/auth/local/register`;
+    // const registerEndpoint = `${process.env.NEXT_PUBLIC_HOSTNAME}:${process.env.NEXT_PUBLIC_PORT}/auth/local/register`;
 
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");

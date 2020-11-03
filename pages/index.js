@@ -10,7 +10,8 @@ import { useRouter } from 'next/router';
 
 export default function Home() {
   const router = useRouter();
-  const loginEndpoint = `${process.env.NEXT_PUBLIC_HOSTNAME}:${process.env.NEXT_PUBLIC_PORT}/auth/local`;
+  const loginEndpoint = `${process.env.NEXT_PUBLIC_HOSTNAME}/auth/local`;
+  // const loginEndpoint = `${process.env.NEXT_PUBLIC_HOSTNAME}:${process.env.NEXT_PUBLIC_PORT}/auth/local`;
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
