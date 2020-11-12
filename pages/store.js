@@ -8,8 +8,6 @@ export default function Store() {
 
     const productsEndpoint = `${process.env.NEXT_PUBLIC_HOSTNAME}/products`;
     const categoriesEndpoint = `${process.env.NEXT_PUBLIC_HOSTNAME}/categories`;
-    // const productsEndpoint = `${process.env.NEXT_PUBLIC_HOSTNAME}:${process.env.NEXT_PUBLIC_PORT}/products`;
-    // const categoriesEndpoint = `${process.env.NEXT_PUBLIC_HOSTNAME}:${process.env.NEXT_PUBLIC_PORT}/categories`;
 
     const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);

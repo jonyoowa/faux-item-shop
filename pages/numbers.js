@@ -6,7 +6,6 @@ import axios from 'axios';
 
 export default function Numbers() {
     const storedNumbersEndpoint = `${process.env.NEXT_PUBLIC_HOSTNAME}/stored-numbers`;
-    // const storedNumbersEndpoint = `${process.env.NEXT_PUBLIC_HOSTNAME}:${process.env.NEXT_PUBLIC_PORT}/stored-numbers`;
 
     const [showTable, setShowTable] = useState(false);
     const [number, setNumber] = useState(0);
