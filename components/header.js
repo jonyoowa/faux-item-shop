@@ -12,11 +12,11 @@ export default function Header() {
     }
 
     return (
-        <header className="border-b flex items-center justify-between p-4 pb-0 shadow-lg">
+        <header className="border-b flex items-center justify-between p-3 shadow-lg">
             <div className="flex items-center justify-between mb-4">
-                <h1 className="leading-none text-2xl text-grey-darkest">
+                <h1 className="leading-none text-4xl text-left text-grey-darkest pt-2 pl-2">
                     <Link href="/store">
-                        <a className="no-underline text-grey-darkest hover:text-black">
+                        <a className="no-underline">
                             Faux Item Shop
                         </a>
                     </Link>
