@@ -45,13 +45,17 @@ export default function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className="w-full min-h-screen flex flex-wrap justify-center items-center p-16">
 
-      <LoginForm email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleLogin={handleLogin} />
+        {/* <h1>
+          Welcome to the Faux Item Shop
+        </h1> */}
 
-      <footer>
-        <h1>Footer Text Here</h1>
-      </footer>
-
+        <div className="rounded-lg bg-white h-auto w-3/5 flex flex-wrap justify-around px-8 py-24">
+          <div className="flex-none h-auto w-1/4 bg-red-500"></div>
+          <LoginForm email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleLogin={handleLogin} />
+        </div>
+      </div>
     </div>
   )
 }
