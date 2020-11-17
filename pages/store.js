@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../components/layout';
+import ProductFilter from '../components/productFilter';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 
@@ -11,6 +12,17 @@ export default function Store() {
 
     const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState("");
+
+    const changeSelectedCategory = async (e) => {
+        e.preventDefault();
+        setSelectedCategory(e.target.value);
+    }
+
+    const clearSelectedCategory = async (e) => {
+        e.preventDefault();
+        setSelectedCategory("");
+    }
 
     useEffect(() => {
         // Redirect user to homepage if not logged in
@@ -31,8 +43,21 @@ export default function Store() {
 
     return (
         <Layout>
+            <div className="flex flex-col items-center py-2">
+                <span className="text-4xl font-semibold mb-4">Products</span>
+                <ProductFilter
+                    categories={categories}
+                    selectedCategory={selectedCategory}
+                    changeSelectedCategory={changeSelectedCategory}
+                    clearSelectedCategory={clearSelectedCategory}
+                />
+            </div>
             <div className="flex flex-wrap overflow-hidden pt-4 pb-12">
-                {products.map(product => <ProductCard product={product} key={product.id} />)}
+                {
+                    products
+                        .filter((product) => selectedCategory !== "" ? product.categories.some(category => category.id.toString() == selectedCategory) : product)
+                        .map(product => <ProductCard product={product} key={product.id} />)
+                }
             </div>
         </Layout>
     )
@@ -44,7 +69,6 @@ function ProductCard({ product }) {
             <img className="object-scale-down h-48 w-full bg-white" src={product.picture ? `${process.env.NEXT_PUBLIC_HOSTNAME}${product.picture.formats.thumbnail.url}` : ""} />
             <div className="h-24 px-6 py-4">
                 <div className="font-bold text-xl mb-2">{product.title}</div>
-                {/* <p className="text-gray-900 text-base">{product.description}</p> */}
             </div>
             <div className="px-6 pt-4 pb-2">
                 <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-lg font-semibold text-gray-700 mb-2">
