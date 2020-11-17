@@ -15,7 +15,7 @@ export default function StoredNumbersTable({ setShowTable, storedNumbers }) {
                         {storedNumbers && storedNumbers.map(num => <StoredNumberRow key={num.id} id={num.id} storedValue={num.storedValue} />)}
                     </tbody>
                 </table>
-                <div className="px-5 py-5 bg-white border-t flex flex-col inline-flex">
+                <div className="px-5 py-5 bg-white border-t flex flex-col">
                     <button className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" onClick={() => setShowTable(false)}>
                         Show Form
                 </button>
